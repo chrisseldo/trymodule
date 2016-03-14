@@ -21,10 +21,10 @@ const loadPackage = (pkg) => {
   return new Promise((resolve, reject) => {
     try {
       const loadedPackage = require(packageLocation(pkg))
-      console.log(`'${pkg}' was already installed since before! Jumping to REPL now`)
+      console.log(`'${pkg}' has already been installed! Jumping to REPL now`)
       resolve(loadedPackage)
     } catch (err) {
-      console.log(`Couldn't find '${pkg}', gonna download it now`)
+      console.log(`Couldn't find '${pkg}', downloading...`)
       npmi({name: pkg, path: TRYMODULE_PATH}, function (err, result) {
         if (err) {
           console.log(err.message)
